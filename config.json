@@ -1,0 +1,20 @@
+{
+  "port": 3001,
+  "updateInterval": 600,
+  "feeds": [
+    {
+      "title": "Linux",
+      "route": "/feed/rss/linux",
+      "scrapers": [
+        "clonezilla"
+      ]
+    }
+  ],
+  "scrapers": [
+    {
+      "id": "clonezilla",
+      "type": "LimeTorrents",
+      "searchTerm": "clonezilla live amd64"
+    }
+  ]
+}
