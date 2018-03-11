@@ -1,0 +1,11 @@
+doctype xml
+rss(version='2.0')
+    channel
+        title= feed.title
+        each t in items
+            item
+                title= t.name
+                link= t.link
+                guid= t.link
+                pubDate= t.date.toString()
+                enclosure(url=t.torrent type="application/x-bittorrent")
