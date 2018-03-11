@@ -1,13 +1,16 @@
 {
   "name": "rss-webplug",
   "version": "0.1.0",
-  "description": "",
+  "description": "Transform webpages into torrent rss feeds.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Fábio André Damas",
+    "email": "skkeeper@gmail.com"
+  },
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "chrono-node": "^1.3.5",
