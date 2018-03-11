@@ -3,14 +3,14 @@ const x = Xray();
 
 const cheerio = require('cheerio');
 
-var chrono = require('chrono-node')
+const chrono = require('chrono-node');
 
 
 const queryString = require('querystring');
 
-let HeroTorrents = function (searchTerm, titleMatch) {
-  this._url += `${queryString.escape(searchTerm)}/`;
-  this._titleMatch = titleMatch;
+let HeroTorrents = function (options) {
+  this._url += `${queryString.escape(options.searchTerm)}/`;
+  this._titleMatch = options.titleMatch;
 };
 
 HeroTorrents.prototype = {
@@ -23,7 +23,7 @@ HeroTorrents.prototype = {
   init: async function () {
     this._matchedResults = await this._scrapeSearchResults();
     for (let i = 0; i < this._matchedResults.length; i++) {
-      console.log(this._matchedResults[i].link);
+      //console.log(this._matchedResults[i].link);
       const details = await this._scrapeDetails(this._matchedResults[i].link);
       this._matchedResults[i].date = details.date;
       this._matchedResults[i].torrent = details.torrent;
