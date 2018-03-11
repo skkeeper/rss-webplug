@@ -13,7 +13,7 @@ let ScraperManager = function (config) {
   this._scrapers = {};
   for (let i = 0; i < config.length; i++) {
     const node = config[i];
-    debugger;
+
     const scraperClass = loadScraper(node.type);
     this._scrapers[node.id] = new scraperClass(node);
   }
