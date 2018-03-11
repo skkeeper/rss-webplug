@@ -8,13 +8,13 @@ const chrono = require('chrono-node');
 
 const queryString = require('querystring');
 
-let HeroTorrents = function (options) {
+let LimeTorrents = function (options) {
   this._url += `${queryString.escape(options.searchTerm)}/`;
-  this._titleMatch = options.titleMatch;
+  this._titleMatch = options.titleMatch || '';
 };
 
-HeroTorrents.prototype = {
-  _url: 'https://herotorrents.com/search/all/',
+LimeTorrents.prototype = {
+  _url: 'https://www.epictorrents.com/search/all/',
   _baseScope: 'table.table2',
   _innerScope: 'a+a',
   _matchedResults: [],
@@ -83,7 +83,9 @@ HeroTorrents.prototype = {
 
         const dateTd = $($('.torrentinfo>table>tbody>tr+tr>td+td')[0]);
         dateTd.children().remove();
-        const dateString = dateTd.text().replace('in  - ', '');
+        const dateString = dateTd.text()
+          .replace('in  - ', '')
+          .replace('+', ' ago');
 
         const linkList = $(downloadLinks);
         for (let i = 0; i < linkList.length; i++) {
@@ -109,4 +111,4 @@ HeroTorrents.prototype = {
   }
 };
 
-module.exports = HeroTorrents;
+module.exports = LimeTorrents;

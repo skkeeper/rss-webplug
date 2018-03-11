@@ -1,9 +1,9 @@
-const HeroTorrents = require('./scrapers/hero_torrents');
+const LimeTorrents = require('./scrapers/lime_torrents');
 
 const loadScraper = (type) => {
   switch (type) {
-    case 'HeroTorrents':
-      return HeroTorrents;
+    case 'LimeTorrents':
+      return LimeTorrents;
     default:
       throw Error(`Scraper with type ${type} doesn't exist.`);
   }
