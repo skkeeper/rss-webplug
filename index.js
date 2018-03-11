@@ -32,6 +32,7 @@ function initFeeds (config) {
         items: feed.get()
       });
     });
+    console.log(`Feed ${feed.getName()} created. Check it out: http://127.0.0.1:${userConfig['port']}${feed.getRoute()}`);
   }
 
   return feeds;
